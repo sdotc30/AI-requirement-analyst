@@ -29,11 +29,14 @@ async function startAnalysis() {
   chatHistory.innerHTML = "";
 
   try {
-    const res = await fetch("http://127.0.0.1:8001/analyze", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ idea: projectIdea }),
-    });
+    const res = await fetch(
+      "https://ai-requirement-analyst.onrender.com/docs#/default/analyze_idea_analyze_post",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ idea: projectIdea }),
+      },
+    );
 
     if (!res.ok) throw new Error("Backend error during analysis");
 
