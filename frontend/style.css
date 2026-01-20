@@ -1,0 +1,440 @@
+:root {
+  --primary-color: #2f8578; /* Teal Green from logo/buttons */
+  --primary-hover: #256d62;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --font-family: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: var(--card-background);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  background-color: var(--primary-color);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #111827;
+}
+
+.role-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically for initial view */
+}
+
+/* Sections */
+.hidden-section {
+  display: none !important;
+}
+
+.active-section {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input Section (Initial) */
+.hero-text {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+  font-family: serif; /* Matches "Turn ideas into requirements" serif font */
+}
+
+.hero-text p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+.input-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color); /* Subtle border like image */
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.input-header {
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 0.75rem;
+  border: 1px solid transparent; /* No border initially in textarea itself if card has it, or minimal */
+  border-radius: 8px;
+  resize: none;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background-color: #fafafa; /* Very light grey for input area */
+  margin-bottom: 1.5rem;
+  outline: none;
+}
+
+textarea:focus {
+  background-color: white;
+  border-color: var(--border-color);
+}
+
+.input-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#start-btn,
+.action-btn.active {
+  background-color: #92c7c1; /* Lighter teal for button background */
+  color: #134e48; /* Darker teal for text */
+  font-weight: 600;
+  background-color: var(
+    --primary-color
+  ); /* Correcting to primary teal based on reference solid button */
+  background-color: #87c1bb; /* Approximation of the light teal button */
+  background-color: #87c1bb;
+  color: #0f3934;
+  /* Re-evaluating color based on image 3/4. It looks like a solid teal button. */
+  background-color: #88c0ba;
+}
+
+/* Specific styling for the primary action button to match Image 4 exactly */
+#start-btn {
+  background-color: #90c6c0; /* Muted teal */
+  color: #0d3530;
+}
+#start-btn:hover {
+  background-color: #7baba6;
+}
+
+button.secondary-btn,
+.action-btn.secondary {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Chat Section */
+#chat-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Take full height available */
+}
+
+.chat-header-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.chat-history {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 80%;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.ai {
+  align-self: flex-start;
+}
+
+.message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.message.ai .avatar {
+  background-color: #e0f2f1;
+  color: var(--primary-color);
+}
+
+.message.user .avatar {
+  background-color: #e5e7eb; /* Placeholder for user avatar */
+  display: none; /* Often user avatar is hidden in modern minimalistic chats, or we can show initals */
+}
+
+/* Based on image, User bubbles are teal, AI bubbles are light grey */
+.message-content {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.message.ai .message-content {
+  background-color: #f3f4f6;
+  color: var(--text-primary);
+  border-top-left-radius: 2px;
+}
+
+.message.user .message-content {
+  background-color: var(--primary-color);
+  color: white;
+  border-top-right-radius: 2px;
+}
+
+.chat-input-area {
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+  background: white;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  outline: none;
+  font-family: var(--font-family);
+}
+
+#chat-input:focus {
+  border-color: var(--primary-color);
+}
+
+.send-btn {
+  background-color: var(--primary-color);
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.send-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Result Section */
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.result-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.result-header h2 {
+  font-family: serif;
+  font-size: 1.75rem;
+  color: #111827;
+}
+
+.export-btn {
+  background: white;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.requirements-content {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.req-category {
+  margin-bottom: 2rem;
+}
+
+.req-category:last-child {
+  margin-bottom: 0;
+}
+
+.req-category h3 {
+  font-size: 1.1rem;
+  color: #111827;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.req-category h3 i {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.req-category ul {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.req-category li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  color: #4b5563;
+}
+
+.req-category li::before {
+  content: "\f00c"; /* FontAwesome check */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: -1.5rem;
+  color: var(--primary-color); /* Green checkmark */
+  top: 2px;
+  font-size: 0.875rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin-top: auto;
+}

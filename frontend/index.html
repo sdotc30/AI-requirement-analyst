@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReqAI - Requirement Analyst</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo-container">
+        <div class="logo-icon">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <span class="logo-text">ReqAI</span>
+      </div>
+      <span class="role-text">Requirement Analyst</span>
+    </header>
+
+    <main>
+      <!-- INPUT -->
+      <section id="input-section" class="active-section">
+        <div class="hero-text">
+          <h1>Turn ideas into requirements</h1>
+          <p>
+            Describe your project. Answer a few questions. Get structured
+            requirements.
+          </p>
+        </div>
+
+        <div class="input-card">
+          <textarea
+            id="idea-input"
+            placeholder="I want to build a web app for NGOs..."
+          ></textarea>
+          <button id="start-btn" onclick="startAnalysis()">
+            Start Analysis
+          </button>
+        </div>
+      </section>
+
+      <!-- CHAT -->
+      <section id="chat-section" class="hidden-section">
+        <div class="chat-container">
+          <div id="chat-history" class="chat-history"></div>
+
+          <div class="chat-input-area">
+            <input id="chat-input" placeholder="Type your answer..." />
+            <button onclick="sendAnswer()">Send</button>
+          </div>
+        </div>
+
+        <!-- 🔥 THIS WAS MISSING -->
+        <button
+          id="generate-btn"
+          class="secondary-btn hidden-section"
+          onclick="generateRequirements()"
+          style="margin-top: 1rem"
+        >
+          Generate Requirements
+        </button>
+      </section>
+
+      <!-- RESULT -->
+      <section id="result-section" class="hidden-section">
+        <h2>Project Requirements</h2>
+
+        <h3>Functional Requirements</h3>
+        <ul id="func-req-list"></ul>
+
+        <h3>Non-Functional Requirements</h3>
+        <ul id="non-func-req-list"></ul>
+
+        <h3>Technical Specifications</h3>
+        <ul id="tech-spec-list"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
